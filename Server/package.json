@@ -3,14 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "rebuild": "electron-rebuild -f -w mmmagic",
+    "dev": "echo 'k' | sudo -S   pm2 start ./bin/www --watch --ignore-watch='public/tmp'",
+    "prod": "echo 'k' | sudo -S  pm2 start ./bin/www --watch --ignore-watch='public/tmp'",
+    "debug": "echo 'k' | sudo -S devtool app.js",
+    "stop": "echo 'k' | sudo -S  pm2 kill",
+    "logs": "echo 'k' | sudo -S  pm2 logs"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
     "express": "~4.16.0",
     "hbs": "~4.0.1",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "http-errors": "^1.6.3",
+    "joi": "^13.3.0",
+    "morgan": "~1.9.0",
+    "promise-mysql": "^3.2.1"
   }
 }
