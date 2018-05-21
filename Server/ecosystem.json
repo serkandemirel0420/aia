@@ -1,0 +1,12 @@
+{
+    "apps": [{
+        "name": "myapp-debug",
+        "script": "./bin/www",
+        "node_args": ["--inspect"],
+        "watch": true,
+        "env": {
+            "port": 9229,
+            "NODE_ENV": "dev"
+        }
+    }]
+}

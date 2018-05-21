@@ -6,7 +6,8 @@
     "rebuild": "electron-rebuild -f -w mmmagic",
     "dev": "echo 'k' | sudo -S   pm2 start ./bin/www --watch --ignore-watch='public/tmp'",
     "prod": "echo 'k' | sudo -S  pm2 start ./bin/www --watch --ignore-watch='public/tmp'",
-    "debug": "echo 'k' | sudo -S devtool app.js",
+    "debug": "echo 'k' | sudo -S node --inspect ./bin/www",
+    "debug2": "pm2 start ecosystem.json myapp-debug",
     "stop": "echo 'k' | sudo -S  pm2 kill",
     "logs": "echo 'k' | sudo -S  pm2 logs"
   },
@@ -15,6 +16,7 @@
     "debug": "~2.6.9",
     "dotenv": "^5.0.1",
     "express": "~4.16.0",
+    "express-validation": "^1.0.2",
     "hbs": "~4.0.1",
     "http-errors": "^1.6.3",
     "joi": "^13.3.0",

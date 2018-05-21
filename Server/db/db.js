@@ -1,5 +1,5 @@
 var mysql = require('promise-mysql');
-var pool = mysql.createPool({
+var rootPool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
@@ -7,4 +7,4 @@ var pool = mysql.createPool({
     connectionLimit: 10
 });
 
-exports.pool = pool;
+exports.pool = rootPool;
