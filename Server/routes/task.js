@@ -6,13 +6,16 @@ let validate = require('express-validation');
 let validation = require('../validation/validation');
 
 
-let wrap = function fn(fn) {
+//let wrap = fn => (...args) => fn(...args).catch(args[2])
+let wrap = function (fn) {
   return function (...args) {
-
     fn(...args)
-      .catch(args[2])
+      .catch(
+        args[2] // next function
+      )
   }
 }
+
 
 
 
@@ -26,7 +29,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/testGet', wrap(async function (req, res, next) {
 
-  let result = await pool.query("SELECT * FROM aia.task;");
+  let result = await pool.query("SELECT * FRdOM aia.task;");
   return res.status(200).send({
     result
   });
