@@ -11,7 +11,9 @@ let wrap = function (fn) {
   return function (...args) {
     fn(...args)
       .catch(
-        args[2] // next function
+        // next() function call iwth default params,
+        // also can be  args[2]("Custom error message")
+        args[2]
       )
   }
 }
@@ -41,6 +43,7 @@ router.get('/testGet', wrap(async function (req, res, next) {
 
 
 router.use(function (err, req, res, next) {
+  debugger
   return next(err.message) // oh no!
 })
 
